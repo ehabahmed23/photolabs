@@ -2,27 +2,16 @@ import React from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import { useState } from 'react';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
 const HomeRoute = (props) => {
 
-  const [favPhotos, setFavPhotos] = useState([]);
 
-  const toggleFav = (photoId) => { 
-    setFavPhotos(
-      favPhotos.includes(photoId)
-        ? favPhotos.filter((fave) => fave !== photoId) 
-        : [...favPhotos, photoId] 
-    );
-  };
-
-  console.log(favPhotos)
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} favPhotoCount={favPhotos.length}/>
-      <PhotoList photos={photos} toggleFav={toggleFav} favouritedPhotos={favPhotos} openModal={props.openModal}/>
+      <TopNavigationBar topics={topics} favPhotoCount={props.favouritedPhotos.length}/>
+      <PhotoList photos={photos} toggleFav={props.toggleFav} favouritedPhotos={props.favouritedPhotos} openModal={props.openModal}/>
     </div>
   );
 };
