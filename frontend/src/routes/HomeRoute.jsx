@@ -6,7 +6,7 @@ import { useState } from 'react';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
-const HomeRoute = () => {
+const HomeRoute = (props) => {
 
   const [favPhotos, setFavPhotos] = useState([]);
 
@@ -22,7 +22,7 @@ const HomeRoute = () => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} favPhotoCount={favPhotos.length}/>
-      <PhotoList photos={photos} toggleFav={toggleFav} favouritedPhotos={favPhotos}/>
+      <PhotoList photos={photos} toggleFav={toggleFav} favouritedPhotos={favPhotos} openModal={props.openModal}/>
     </div>
   );
 };

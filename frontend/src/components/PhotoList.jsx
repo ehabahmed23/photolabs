@@ -15,7 +15,8 @@ const PhotoList = (props) => {
   city={photo.location.city}
   country={photo.location.country}
   toggleFav={props.toggleFav}
-  favouritedPhotos={props.favouritedPhotos} />) 
+  favouritedPhotos={props.favouritedPhotos}
+  openModal={props.openModal} />) 
 
   return (
     <ul className="photo-list">
