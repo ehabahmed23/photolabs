@@ -5,10 +5,12 @@ import TopicListItem from "./TopicListItem";
 
 
 
-const TopicList = ({topics}) => {
+const TopicList = (props) => {
 
-
-  const topicList = topics.map((topic) => <TopicListItem key={topic.id} {...topic}/>)
+  const topicList = props.topics.map((topic) => <TopicListItem 
+  key={topic.id}
+  slug={topic.slug}
+  title={topic.title}/>)
 
 
   return (
