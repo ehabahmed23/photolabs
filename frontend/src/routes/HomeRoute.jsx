@@ -3,8 +3,10 @@ import '../styles/HomeRoute.scss';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import { useState } from 'react';
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
 
-const HomeRoute = (props) => {
+const HomeRoute = () => {
 
   const [favPhotos, setFavPhotos] = useState([]);
 
@@ -19,8 +21,8 @@ const HomeRoute = (props) => {
   console.log(favPhotos)
   return (
     <div className="home-route">
-      <TopNavigationBar topics={props.topics} />
-      <PhotoList photos={props.photos} toggleFav={toggleFav} favouritedPhotos={favPhotos}/>
+      <TopNavigationBar topics={topics} favPhotoCount={favPhotos.length}/>
+      <PhotoList photos={photos} toggleFav={toggleFav} favouritedPhotos={favPhotos}/>
     </div>
   );
 };
