@@ -2,7 +2,8 @@
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
-
+!["screenshot PhotoLabs home page"](https://github.com/ehabahmed23/photolabs/blob/main/docs/photoLabs-home.PNG)
+!["screenshot PhotoLabs Modal page"](https://github.com/ehabahmed23/photolabs/blob/main/docs/photoLabs-modal.PNG)
 ## Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
