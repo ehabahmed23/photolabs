@@ -10,7 +10,11 @@ const TopicList = (props) => {
   const topicList = props.topics.map((topic) => <TopicListItem 
   key={topic.id}
   slug={topic.slug}
-  title={topic.title}/>)
+  title={topic.title}
+  id={topic.id}
+  topic={props.topic}
+  dispatch={props.dispatch}
+  ACTIONS={props.ACTIONS}/>)
 
 
   return (

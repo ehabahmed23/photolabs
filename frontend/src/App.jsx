@@ -3,13 +3,13 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
-import topics from 'mocks/topics';
-import photos from 'mocks/photos';
 
  const App = () => {
 
   const {
+    ACTIONS,
     state,
+    dispatch,
     openModal,
     closeModal,
     toggleFav
@@ -17,10 +17,11 @@ import photos from 'mocks/photos';
 
   return(
    <div className="App">
-    <HomeRoute photos={photos} topics={topics} openModal={openModal} toggleFav={toggleFav} favouritedPhotos={state.favPhotos}/>
+    <HomeRoute photos={state.photos} topics={state.topics} ACTIONS={ACTIONS} dispatch={dispatch} openModal={openModal} toggleFav={toggleFav} favouritedPhotos={state.favPhotos}/>
     {state.isModalOpen && (
     <PhotoDetailsModal 
-      clickedPhoto={state.clickedPhoto} 
+      clickedPhoto={state.clickedPhoto}
+      openModal={openModal}
       closeModal={closeModal} 
       toggleFav={toggleFav} 
       favouritedPhotos={state.favPhotos} />)}
