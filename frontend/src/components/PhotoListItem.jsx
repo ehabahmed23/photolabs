@@ -4,7 +4,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-
+//jsx template for a single photo with passed down props
 
   return (
     <div className="photo-list__item">
@@ -13,7 +13,7 @@ const PhotoListItem = (props) => {
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile"  alt="profile picture" src={props.profile} />
         <div className="photo-list__user-info">
-          {props.username}
+          {props.name}
           <div className="photo-list__user-location">{props.city}, {props.country}</div>
         </div>
       </div>

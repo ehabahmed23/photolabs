@@ -3,7 +3,8 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
-
+//passes down all props for building a photo list item also maps thru each set of data
+//also passes fav icon state and toggle
   const photoList = props.photos.map((photo) => <PhotoListItem 
   key={photo.id}
   photoId={photo.id}

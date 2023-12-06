@@ -12,9 +12,9 @@ const ACTIONS = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-  case 'SET_PHOTO_DATA':
+  case ACTIONS.SET_PHOTO_DATA:
     return { ...state, photos: action.payload };
-  case 'SET_TOPIC_DATA':
+  case ACTIONS.SET_TOPIC_DATA:
     return { ...state, topics: action.payload };
   case ACTIONS.TOGGLE_FAV:
     return { ...state, favPhotos: state.favPhotos.includes(action.photoId)
@@ -24,10 +24,10 @@ const reducer = (state, action) => {
     return { ...state, clickedPhoto: action.photo, isModalOpen: true};
   case ACTIONS.CLOSE_MODAL:
     return { ...state, clickedPhoto: null, isModalOpen: false};
-  case 'SET_NAV_TOPIC':
+  case ACTIONS.SET_NAV_TOPIC:
     state.topic = action.topic;
     return { ...state };
-  case 'GET_PHOTOS_BY_TOPICS':
+  case ACTIONS.GET_PHOTOS_BY_TOPICS:
     state.photos = action.payload;
     return { ...state };
     
@@ -46,10 +46,11 @@ const useApplicationData = () => {
     topics: [],
     photo: null,
     topic: null
+
   };
 
   const [state, dispatch] = useReducer(reducer, defaultState);
-
+  // fetch topics
   useEffect(() => {
     fetch('/api/topics')
       .then(res => res.json())
@@ -57,13 +58,13 @@ const useApplicationData = () => {
   }, []);
 
   useEffect(() => {
-    // Get photos by topic
+    // get photos by topic
     if (state.topic) {
       fetch(`/api/topics/photos/${state.topic}`)
         .then(res => res.json())
         .then(photoData => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: photoData }));
 
-    // Get all photos
+    // get all photos
     } else {
       fetch('/api/photos')
         .then(res => res.json())
@@ -83,13 +84,17 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.TOGGLE_FAV, photoId});
   };
 
+  const setNavTopic = (topicId) => {
+    dispatch({type: ACTIONS.SET_NAV_TOPIC, topic:topicId });
+  };
+
   return {
-    ACTIONS,
     state,
     dispatch,
     openModal,
     closeModal,
-    toggleFav
+    toggleFav,
+    setNavTopic
   };
 };
   

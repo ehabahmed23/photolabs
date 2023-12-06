@@ -6,7 +6,7 @@ import "../styles/TopicListItem.scss";
 const TopicListItem = (props) => {
 
   const topicOnClick = () => {
-    props.dispatch({ type: props.ACTIONS.SET_NAV_TOPIC, topic: props.id });
+    props.setNavTopic(props.id); // Call setNavTopic with the topic's ID
   };
 
   return (

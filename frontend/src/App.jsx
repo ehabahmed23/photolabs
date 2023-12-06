@@ -7,17 +7,17 @@ import useApplicationData from 'hooks/useApplicationData';
  const App = () => {
 
   const {
-    ACTIONS,
     state,
     dispatch,
     openModal,
     closeModal,
-    toggleFav
+    toggleFav,
+    setNavTopic
   } = useApplicationData();
 
   return(
    <div className="App">
-    <HomeRoute photos={state.photos} topics={state.topics} ACTIONS={ACTIONS} dispatch={dispatch} openModal={openModal} toggleFav={toggleFav} favouritedPhotos={state.favPhotos}/>
+    <HomeRoute photos={state.photos} topics={state.topics} setNavTopic={setNavTopic} dispatch={dispatch} openModal={openModal} toggleFav={toggleFav} favouritedPhotos={state.favPhotos}/>
     {state.isModalOpen && (
     <PhotoDetailsModal 
       clickedPhoto={state.clickedPhoto}

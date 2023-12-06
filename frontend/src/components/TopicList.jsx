@@ -6,7 +6,8 @@ import TopicListItem from "./TopicListItem";
 
 
 const TopicList = (props) => {
-
+// passes down topics from the data as props
+// maps thru the topics with different data each time and returns a list
   const topicList = props.topics.map((topic) => <TopicListItem 
   key={topic.id}
   slug={topic.slug}
@@ -14,7 +15,7 @@ const TopicList = (props) => {
   id={topic.id}
   topic={props.topic}
   dispatch={props.dispatch}
-  ACTIONS={props.ACTIONS}/>)
+  setNavTopic={props.setNavTopic}/>)
 
 
   return (
