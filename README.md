@@ -1,5 +1,5 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+
 
 # Photolabs
 !["screenshot PhotoLabs home page"](https://github.com/ehabahmed23/photolabs/blob/main/docs/photoLabs-home.PNG)
